@@ -1,1 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body, html {
+  height: 100%;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.fireworks {
+  position: relative;
+  width: 100pxpx;
+  height: 100px;
+  animation: explode 2s infinite ease-in-out;
+}
+
+.spark {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0;
+  border-radius: 50%;
+  opacity: 0;
+  animation: spark-animation 1s forwards;
+}
+
+.spark:nth-child(1) {
+  animation-delay: 0s;
+  top: 50%;
+  left: 50%;
+}
+
+.spark:nth-child(2) {
+  animation-delay: 0.1s;
+  top: 50%;
+  left: 50%;
+}
+
+.spark:nth-child(3) {
+  animation-delay: 0.2s;
+  top: 50%;
+  left: 50%;
+}
+
+.spark:nth-child(4) {
+  animation-delay: 0.3s;
+  top: 50%;
+  left: 50%;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes spark-animation {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(100px * (random() - 0.5)), calc(100px * (random() - 0.5)));
+  }
+}
